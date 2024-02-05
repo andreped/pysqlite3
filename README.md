@@ -66,3 +66,16 @@ of SQLite.
 ```
 $ pip install pysqlite3-binary
 ```
+
+Performing unit tests
+---------------------
+
+To verify that the precompiled binary is working, tests can be performed using [pytest](https://pypi.org/project/pytest/).
+
+```
+# Install pytest
+$ pip install pytest
+
+# Perform tests
+$ pytest -v tests/
+```

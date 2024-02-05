@@ -29,10 +29,9 @@ jobs:
       - name: Build wheel
         run: |
           sed -i "s|name='pysqlite3-binary'|name=PACKAGE_NAME|g" setup.py
-          PY_version="/opt/python/cp36-cp36m/bin"
-          "${PY_version}/python" setup.py build_static
+          python setup.py build_static
           sed -i "s|name=PACKAGE_NAME|name='pysqlite3-binary'|g" setup.py
-          "${PY_version}/pip" wheel /pysqlite3 -w /wheelhouse
+          pip wheel /pysqlite3 -w /wheelhouse
           auditwheel repair "$whl" -w /wheelhouse/
 
       - name: Install package

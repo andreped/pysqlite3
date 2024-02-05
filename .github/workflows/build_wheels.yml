@@ -29,7 +29,7 @@ jobs:
       - name: Install requirements
         run: pip install setuptools wheel
       
-      - name: Install Amalgation
+      - name: Install SQLite and setup Amalgamation
         run: |
           # Download the latest release of SQLite source code and build the source
           # amalgamation files (sqlite3.c and sqlite3.h).
@@ -41,7 +41,8 @@ jobs:
 
           # Copy the sqlite3 amalgamation files into the root of the pysqlite3 checkout
           # and run build_static + build:
-          cp sqlite/sqlite3.[ch] pysqlite3/
+          cp sqlite/sqlite3.c pysqlite3/
+          cp sqlite/sqlite3.h pysqlite3/
           cd pysqlite3
           python setup.py build_static build
 

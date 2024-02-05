@@ -70,12 +70,8 @@ $ pip install pysqlite3-binary
 Performing unit tests
 ---------------------
 
-To verify that the precompiled binary is working, tests can be performed using [pytest](https://pypi.org/project/pytest/).
+To verify that the precompiled binary is working, unit tests can be performed by running:
 
 ```
-# Install pytest
-$ pip install pytest
-
-# Perform tests
-$ pytest -v tests/
+$ python tests/
 ```

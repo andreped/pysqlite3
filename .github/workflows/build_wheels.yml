@@ -23,8 +23,11 @@ jobs:
         with:
           python-version: ${{ matrix.python-version }}
       
+      - name: Install pysqlite3
+        run: sudo apt-get install libsqlite3-dev
+      
       - name: Install requirements
-        run: pip install setuptools wheel pytest
+        run: pip install setuptools wheel
 
       - name: Build wheel
         run: |
@@ -38,7 +41,7 @@ jobs:
         run: pip install --find-links=${{github.workspace}}/dist/ pysqlite3
 
       - name: Test wheel
-        run: pytest -v tests/
+        run: python tests/
 
       - name: Upload Python wheel
         uses: actions/upload-artifact@v2
